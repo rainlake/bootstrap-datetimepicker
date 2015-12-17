@@ -417,6 +417,9 @@
 
                 if (options.widgetParent) {
                     parent = options.widgetParent.append(widget);
+                    offset = (component || element).parent().offset()
+                    position.top = offset.top - options.widgetParent.offset().top;
+                    position.left = offset.left - options.widgetParent.offset().left - element.parent().outerWidth();
                 } else if (element.is('input')) {
                     parent = element.after(widget).parent();
                 } else if (options.inline) {
